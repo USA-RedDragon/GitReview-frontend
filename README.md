@@ -1,39 +1,19 @@
-# client
+# Git Review Client
 
-## Project setup
-```
-npm install
-```
+[![CircleCI](https://circleci.com/gh/USA-RedDragon/GitReview-frontend/tree/master.svg?style=svg)](https://circleci.com/gh/USA-RedDragon/GitReview-frontend/tree/master) [![codecov](https://codecov.io/gh/USA-RedDragon/gitreview-frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/USA-RedDragon/gitreview-frontend) [![Client](https://images.microbadger.com/badges/image/jamcswain/gitreview-client.svg)](https://microbadger.com/images/jamcswain/gitreview-client "Get your own image badge on microbadger.com")
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Deploying
 
-### Compiles and minifies for production
-```
-npm run build
-```
+The Docker images for the current master branch are found on [Docker Hub](https://hub.docker.com/u/jamcswain) under `gitreview-client`. Versioning will be implemented once we reach stable 1.0.
 
-### Run your tests
-```
-npm run test
-```
+The below documentation will go through the information you need.
 
-### Lints and fixes files
-```
-npm run lint
-```
+As far as best practices, and how to deploy containers, a Google search is your best friend.
 
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
+## Environment Variables
 
-### Run your unit tests
-```
-npm run test:unit
-```
+Note: Client environment variables must be set at build time
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+| Environment Variable |            Details            | Example |
+| -------------------- | ----------------------------- | ------- |
+| BASE_URL             | The base URL for the frontend | /       |
