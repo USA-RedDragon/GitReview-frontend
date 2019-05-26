@@ -3,7 +3,6 @@ FROM node:10.15-alpine as builder
 WORKDIR /app
 
 ENV BASE_URL=/
-ENV NODE_ENV=production
 
 COPY package.json package-lock.json ./
 
