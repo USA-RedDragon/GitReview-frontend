@@ -174,54 +174,54 @@
 import axios from "axios";
 
 export default {
-    name: "App",
-    data() {
-        return {
-            drawer: false,
-            loggedIn: false,
-            // localStorage in Firefox is string-only
-            dark: localStorage.dark === 'true' ? true:false,
-            user: {},
-            notficationCount: 0,
-            notfications: [
-                {
-                    title: "Jacob McSwain requires your review",
-                    text: "Add toggle for face auto unlock (2/2)",
-                    avatar: "https://avatars0.githubusercontent.com/u/13051767?v=4",
-                    action: "/"
-                },
-                {
-                    title: "Jacob McSwain requires your review",
-                    text: "libcameraservice: force specific cam id for google face unlock",
-                    avatar: "https://avatars0.githubusercontent.com/u/13051767?v=4",
-                    action: "/"
-                },
-                {
-                    title: "Jacob McSwain requires your review",
-                    text: "KeyguardHostView: Auto face unlock v2",
-                    avatar: "https://avatars0.githubusercontent.com/u/13051767?v=4",
-                    action: "/"
-                }
-            ]
-        };
-    },
-    watch: {
-        dark(_newValue) {
-            // localStorage in Firefox is string-only
-            localStorage.dark = this.dark ? 'true':'false';
+  name: "App",
+  data() {
+    return {
+      drawer: false,
+      loggedIn: false,
+      // localStorage in Firefox is string-only
+      dark: localStorage.dark === 'true' ? true:false,
+      user: {},
+      notficationCount: 0,
+      notfications: [
+        {
+          title: "Jacob McSwain requires your review",
+          text: "Add toggle for face auto unlock (2/2)",
+          avatar: "https://avatars0.githubusercontent.com/u/13051767?v=4",
+          action: "/"
+        },
+        {
+          title: "Jacob McSwain requires your review",
+          text: "libcameraservice: force specific cam id for google face unlock",
+          avatar: "https://avatars0.githubusercontent.com/u/13051767?v=4",
+          action: "/"
+        },
+        {
+          title: "Jacob McSwain requires your review",
+          text: "KeyguardHostView: Auto face unlock v2",
+          avatar: "https://avatars0.githubusercontent.com/u/13051767?v=4",
+          action: "/"
         }
-    },
-    created() {
-        axios
-            .get("/api/v1/users/me")
-            .then((res) => {
-                this.loggedIn = true;
-                this.user = res.data;
-            })
-            .catch((_err) => {
-                this.loggedIn = false;
-            });
+      ]
+    };
+  },
+  watch: {
+    dark(_newValue) {
+      // localStorage in Firefox is string-only
+      localStorage.dark = this.dark ? 'true':'false';
     }
+  },
+  created() {
+    axios
+      .get("/api/v1/users/me")
+      .then((res) => {
+        this.loggedIn = true;
+        this.user = res.data;
+      })
+      .catch((_err) => {
+        this.loggedIn = false;
+      });
+  }
 };
 </script>
 
