@@ -7,7 +7,11 @@
           <v-avatar size="32">
             <img :src="props.item.avatarUrl" alt="avatar">
           </v-avatar>
-          {{ props.item.name }}
+          <router-link
+            :to="'/people/users/' + props.item.id"
+            v-if="admin"><span> {{ props.item.name }}</span>
+          </router-link>
+          <span v-else> {{ props.item.name }}</span>
         </td>
         <td>{{ props.item.login }}</td>
         <td>
@@ -30,11 +34,15 @@ export default {
       { text: "Username", value: "login", sortable: true },
       { text: "Admin", value: "admin", sortable: true }
     ],
-    users: []
+    users: [],
+    admin: false,
   }),
-  created() {
+  mounted() {
     axios.get("/api/v1/users").then(res => {
       this.users = res.data;
+    });
+    axios.get("/api/v1/users/me").then(res => {
+      this.admin = res.data.admin;
     });
   }
 };

@@ -163,7 +163,7 @@
     </v-navigation-drawer>
     <v-content>
       <v-container fluid>
-        <router-view/>
+        <router-view :dark="dark"/>
       </v-container>
     </v-content>
     <v-footer app>Copyright &copy; 2019 Jacob McSwain</v-footer>
