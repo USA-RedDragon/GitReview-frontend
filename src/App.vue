@@ -117,37 +117,41 @@
           </v-list-tile-action>
           <v-list-tile-title>List</v-list-tile-title>
         </v-list-tile>
-        <v-list-tile to="/projects/create">
+        <v-list-tile to="/projects/create" v-if="false">
           <v-list-tile-action>
             <v-icon>add</v-icon>
           </v-list-tile-action>
           <v-list-tile-title>Create</v-list-tile-title>
         </v-list-tile>
-        <v-divider/>
-        <v-subheader>People</v-subheader>
-        <v-list-tile to="/people/users">
-          <v-list-tile-action>
-            <v-icon>person</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Users</v-list-tile-title>
-        </v-list-tile>
-        <v-list-tile to="/people/groups">
-          <v-list-tile-action>
-            <v-icon>people</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Groups</v-list-tile-title>
-        </v-list-tile>
-        <v-divider/>
-        <v-subheader>Plugins</v-subheader>
-        <v-list-tile to="/plugins/installed">
-          <v-list-tile-action>
-            <v-icon>extension</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Installed</v-list-tile-title>
-        </v-list-tile>
+        <div v-if="user.admin">
+          <v-divider/>
+          <v-subheader>People</v-subheader>
+          <v-list-tile to="/people/users">
+            <v-list-tile-action>
+              <v-icon>person</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-title>Users</v-list-tile-title>
+          </v-list-tile>
+          <v-list-tile to="/people/groups">
+            <v-list-tile-action>
+              <v-icon>people</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-title>Groups</v-list-tile-title>
+          </v-list-tile>
+        </div>
+        <div v-if="false">
+          <v-divider/>
+          <v-subheader>Plugins</v-subheader>
+          <v-list-tile to="/plugins/installed">
+            <v-list-tile-action>
+              <v-icon>extension</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-title>Installed</v-list-tile-title>
+          </v-list-tile>
+        </div>
         <v-divider/>
         <v-subheader>Settings</v-subheader>
-        <v-list-tile to="/settings">
+        <v-list-tile to="/settings" v-if="loggedIn">
           <v-list-tile-action>
             <v-icon>settings</v-icon>
           </v-list-tile-action>
